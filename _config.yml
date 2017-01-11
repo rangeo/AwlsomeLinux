@@ -1,0 +1,8 @@
+title: Awlsomelinux
+description: A Small Busybox-Based Linux Operating System for Embedded Devices.
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-midnight
+
+gems:
+  - jekyll-mentions
