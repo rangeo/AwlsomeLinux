@@ -1,0 +1,22 @@
+##########################################
+#                                        #
+# AwlsomeLinux Generation Script Library #
+#                                        #
+##########################################
+#    Made by AwlsomeAlex [GNU GPLv3]     #
+#            Version: v0.0.1a            #
+##########################################
+
+
+#############################
+# Check for Dialog Function # check_dialog
+#############################
+# This function makes sure  #
+# 'Dialog' is installed.    #
+#############################
+
+check_dialog()
+{
+	which dialog &> /dev/null
+	[ $? -ne 0 ] && echo "The Package 'dialog' is not installed but required. Please install it by 'apt-get install dialog' to continue." && exit 1
+}
