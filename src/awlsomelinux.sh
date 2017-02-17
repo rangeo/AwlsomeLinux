@@ -23,7 +23,7 @@ get_library()
 	echo "# Downloading Library... #"
 	echo "##########################"
 	echo ""
-	#wget https://github.com/awlsomealex/awlsomelinux/ ## TO BE ADDED
+	wget https://raw.githubusercontent.com/AwlsomeAlex/AwlsomeLinux/rewrite/src/awlsomelinux.lib
 	echo ""
 	echo "######################"
 	echo "# Download Complete! #"
