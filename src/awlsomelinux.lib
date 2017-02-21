@@ -8,15 +8,68 @@
 ##########################################
 
 
-#############################
-# Check for Dialog Function # check_dialog
-#############################
-# This function makes sure  #
-# 'Dialog' is installed.    #
-#############################
+###################
+#-----------------#
+# Settings/Config #
+#-----------------#
+###################
 
+SRC_DIR=$(pwd)
+JOB_FACTOR=1
+NUM_CORES=$(grep ^processor /proc/cpuinfo | wc -l)
+NUM_JOBS=$((NUM_CORES * JOB_FACTOR))
+
+
+#############################
+# Check for Dialog Function #
+#############################
 check_dialog()
 {
 	which dialog &> /dev/null
 	[ $? -ne 0 ] && echo "The Package 'dialog' is not installed but required. Please install it by 'apt-get install dialog' to continue." && exit 1
+}
+
+
+#################
+#---------------#
+# Core Creation #
+#---------------#
+#################
+
+
+######################
+# Directory Controls #
+######################
+
+### Make Directory Function ###
+make_directory()
+{
+	if [ -d "$SRC_DIR/core" ]; then
+		echo "Core Directory Already Created. Skipping..."
+	else
+		echo "Creating Core Directories..."
+		mkdir $SRC_DIR/core
+		mkdir $SRC_DIR/core/source
+		mkdir $SRC_DIR/core/work
+		mkdir $SRC_DIR/core/install
+		echo "Directories Created."
+	fi
+	if [ -d "SRC_DIR/isoimage" ]; then
+		echo "Image Directory Already Created. Skipping..."
+	else
+		echo "Creating Image Directories..."
+		mkdir $SRC_DIR/isoimage
+		mkdir $SRC_DIR/isoimage/image
+		echo "Directories Created."
+	fi
+}
+		
+####################
+# Archive Handlers #
+####################
+
+### Get TAR Archives ###
+get_archives()
+{
+	echo "===== Get Archives (Start) ====="
 }
